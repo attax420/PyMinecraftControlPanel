@@ -42,35 +42,39 @@
 
         Button:
             id: button_player_heal
-            text: 'heal player'
+            text: 'heal'
             on_press: root.player_heal()
 
         Button:
             id: button_player_tp_to_spawn
-            text: 'tp to spawn'
+            text: 'tp\nto spawn'
             on_press: root.player_tp_to_spawn()
 
         Button:
             id: button_player_set_lives
-            text: 'set lives'
+            text: 'set\nlives'
             on_press: root.player_set_lives()
 
         BoxLayout:
             orientation: 'vertical'
             
             Label:
-                text: 'lives\nto\nset'                
-                size_hint_y: None
-                size_hint_x: 1
-                text_size: self.width, None   
-                halign: 'center'             
+                text: 'lives\nto set'    
+                font_size: '10sp'            
+                size_hint_y: .2
+                size_hint_x: 1                
+                text_size: self.width, self.height   
+                halign: 'center' 
+                valign: 'top'            
                            
             Label:
                 text: str(slider_player_lives_to_set.value) 
-                size_hint_y: None
-                size_hint_x: 1               
-                text_size: self.width, None   
+                font_size: '11sp'
+                size_hint_y: .1
+                size_hint_x: 1                          
+                text_size: self.width, self.height 
                 halign: 'center' 
+                valign: 'top'
 
             Slider:
                 id: slider_player_lives_to_set
@@ -86,12 +90,12 @@
 
         Button:
             id: button_player_give_op
-            text: 'give op'
+            text: 'give\nop'
             on_press: root.player_give_op()
 
         Button:
             id: button_player_revoke_op
-            text: 'revoke op'
+            text: 'revoke\nop'
             on_press: root.player_revoke_op()
 
         Button:

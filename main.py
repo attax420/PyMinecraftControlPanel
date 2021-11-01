@@ -6,6 +6,11 @@ from kivy.resources import resource_add_path
 from kivy.properties import StringProperty
 import sys
 import os
+from kivy.config import Config
+Config.set('graphics', 'width', '600')
+Config.set('graphics', 'height', '300')
+Config.write()
+
 
 class MainWindow(BoxLayout):
     

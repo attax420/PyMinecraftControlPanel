@@ -1,9 +1,7 @@
 #:kivy 2.0.0
 
 <MainWindow>:
-    orientation: 'vertical'
-
-    
+    orientation: 'vertical'  
    
     BoxLayout:
         orientation: 'horizontal'
@@ -53,29 +51,29 @@
             on_press: root.player_tp_to_spawn()
 
         Button:
-            id: button_player_add_lives
-            text: 'add lives'
-            on_press: root.player_add_lives()
+            id: button_player_set_lives
+            text: 'set lives'
+            on_press: root.player_set_lives()
 
         BoxLayout:
             orientation: 'vertical'
             
             Label:
-                text: 'lives\nto\nadd'                
+                text: 'lives\nto\nset'                
                 size_hint_y: None
                 size_hint_x: 1
                 text_size: self.width, None   
                 halign: 'center'             
                            
             Label:
-                text: str(slider_player_lives_to_add.value) 
+                text: str(slider_player_lives_to_set.value) 
                 size_hint_y: None
                 size_hint_x: 1               
                 text_size: self.width, None   
                 halign: 'center' 
 
             Slider:
-                id: slider_player_lives_to_add
+                id: slider_player_lives_to_set
                 min: 1
                 max: 10
                 step: 1

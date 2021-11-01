@@ -16,13 +16,11 @@ class MainWindow(BoxLayout):
         try:                   
             port = int(input('enter the server port (default: 25575):\n>'))
             if port not in range(0,65535+1):
-                raise ValueError            
-
+                raise ValueError          
         except ValueError:
             print('invalid value! using default.')
             port = 25575
-            
-        
+                    
         pw = str(input('enter server password:\n>'))
 
         try:
@@ -35,7 +33,7 @@ class MainWindow(BoxLayout):
 
     player_count = StringProperty('')
     selected_player = StringProperty('')
-    lives_to_add = StringProperty('')   
+    lives_to_set = StringProperty('')   
 
     def player_count_refresh(self):        
         with r (host=self.ip, port=self.port, password=self.pw) as mcr:
@@ -52,10 +50,10 @@ class MainWindow(BoxLayout):
         with r (host=self.ip, port=self.port, password=self.pw) as mcr:
             self.player_count = mcr.command('tp '+self.selected_player+' 0 ~ 0')
         
-    def player_add_lives(self):
-        self.lives_to_add = str(self.ids.slider_player_lives_to_add.value)
+    def player_set_lives(self):
+        self.lives_to_set = str(self.ids.slider_player_lives_to_set.value)
         with r (host=self.ip, port=self.port, password=self.pw) as mcr:
-            self.player_count = mcr.command('setlives '+self.selected_player+' '+self.lives_to_add)
+            self.player_count = mcr.command('setlives '+self.selected_player+' '+self.lives_to_set)
         
     def player_revoke_progress(self):  
         with r (host=self.ip, port=self.port, password=self.pw) as mcr:

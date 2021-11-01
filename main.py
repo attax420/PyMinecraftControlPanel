@@ -73,7 +73,7 @@ class MainWindow(BoxLayout):
     
 class PyMinecraftContolPanel(App):
     def build(self):
-        Builder.load_file('pmcp.kv')        
+        Builder.load_file('pymcp.kv')        
         return MainWindow()
 
 if __name__ == '__main__':

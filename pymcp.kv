@@ -1,0 +1,102 @@
+#:kivy 2.0.0
+
+<MainWindow>:
+    orientation: 'vertical'  
+   
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: 1,None
+        size: 1, '60dp'
+
+        Label:
+            id: label_player_count
+            text: root.player_count
+            
+        Button:
+            id: button_player_count_refresh
+            text: 'show\nplayers'
+            on_press: root.player_count_refresh()
+            size_hint: None, None
+            size: '60dp', '60dp'
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: 1,None
+        size: 1, '60dp'
+
+        TextInput:
+            id: textinput_selected_player
+            text: 'enter player to select:'
+            multiline: False
+            on_focus: self.text = ''
+            
+        Button:
+            id: button_selected_player_submit
+            text: 'select\nplayer'
+            on_press: root.selected_player_submit()
+            size_hint: None, None
+            size: '60dp', '60dp'
+
+    GridLayout:
+        cols: 8
+
+        Button:
+            id: button_player_heal
+            text: 'heal player'
+            on_press: root.player_heal()
+
+        Button:
+            id: button_player_tp_to_spawn
+            text: 'tp to spawn'
+            on_press: root.player_tp_to_spawn()
+
+        Button:
+            id: button_player_set_lives
+            text: 'set lives'
+            on_press: root.player_set_lives()
+
+        BoxLayout:
+            orientation: 'vertical'
+            
+            Label:
+                text: 'lives\nto\nset'                
+                size_hint_y: None
+                size_hint_x: 1
+                text_size: self.width, None   
+                halign: 'center'             
+                           
+            Label:
+                text: str(slider_player_lives_to_set.value) 
+                size_hint_y: None
+                size_hint_x: 1               
+                text_size: self.width, None   
+                halign: 'center' 
+
+            Slider:
+                id: slider_player_lives_to_set
+                min: 1
+                max: 10
+                step: 1
+                orientation: 'vertical'
+                            
+        Button:
+            id: button_player_revoke_progress
+            text: 'revoke\nprogress'
+            on_press: root.player_revoke_progress()
+
+        Button:
+            id: button_player_give_op
+            text: 'give op'
+            on_press: root.player_give_op()
+
+        Button:
+            id: button_player_revoke_op
+            text: 'revoke op'
+            on_press: root.player_revoke_op()
+
+        Button:
+            id: button_player_kick
+            text: 'kick'
+            on_press: root.player_kick()
+
+MainWindow:

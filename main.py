@@ -7,10 +7,10 @@ from kivy.properties import StringProperty
 import sys
 import os
 from kivy.config import Config
+
 Config.set('graphics', 'width', '600')
 Config.set('graphics', 'height', '300')
 Config.write()
-
 
 class MainWindow(BoxLayout):
     
@@ -32,9 +32,13 @@ class MainWindow(BoxLayout):
             with r (host=ip, port=port, password=pw) as mcr: 
                 mcr.command('list')
                 connection_refused = False
+                if sys.platform=="win32":
+                    import ctypes
+                    ctypes.windll.user32.ShowWindow( ctypes.windll.kernel32.GetConsoleWindow(), 0 )
         except ConnectionRefusedError:
             print('connection refused, try again!')
             connection_refused = True
+    
 
     player_count = StringProperty('')
     selected_player = StringProperty('')

@@ -26,3 +26,4 @@ main.spec
 .gitignore
 scratch.py
 dist/main.exe
+*.exe
